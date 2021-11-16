@@ -33,6 +33,7 @@ class Popular extends Component {
                     <div className="row">
                         {movies.map(movie => (
                             <Card 
+                                key= {movie.title}
                                 poster={movie.poster_path}
                                 title={movie.title}
                                 releaseDate={movie.release_date}
