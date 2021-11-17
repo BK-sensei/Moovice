@@ -25,9 +25,9 @@ class App extends Component {
         <Switch>
 
             <Route exact path="/" component={Home} />
-            <Route path="/weekly" component={Weekly} />
+            <Route exact path="/weekly" component={Weekly} />
             <Route path="/weekly-battle" component={WeeklyBattle} />
-            <Route path="/popular" component={Popular} />
+            <Route exact path="/popular" component={Popular} />
             <Route path="/popular-battle" component={PopularBattle} />
             <Route path="/favorites" component={Favorites} />
             <Route path="*" component={Error404} />

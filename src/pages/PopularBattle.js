@@ -27,13 +27,13 @@ class PopularBattle extends Component {
         const { currentBattle } = this.state
         this.setState({currentBattle: currentBattle +2})
 
-        // On créer où on va stocker les id des films choisis
+        // On va créer une variable où on va stocker les id des films choisis
         // On va d'abord voir si elle contient un ID
         let favoritesArray = localStorage.getItem("favorites")
 
         // Pour cela on créer une condition pour décider quoi faire si l'id est là
         if (!favoritesArray){                                                                 // si l'ID n'est pas là, on le créé 
-            favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           // ici l'ID entouré de [] est une string grâce au 'stringify'
+            favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           // ici l'ID entouré de [] est une string grâce au 'stringify' | on passe de [4532879] à "[4532879]"
         } else {                                                                               // si il est déjà là, je veux modifier la valeur de la clé 'favorites'    
             favoritesArray = JSON.parse(favoritesArray)                                        // grâce au 'parse' je transforme la variable 'favoritesArray' en tableau
             favoritesArray = [...favoritesArray, id]                                           // ensuite on pousse chaque ID choisi dans le tableau créé juste avant

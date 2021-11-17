@@ -8,18 +8,20 @@ class Weekly extends Component {
 
         // state initial
         this.state = {
-            movies : []
+            movies : [],
+            today : moment().format("YYYY-MM-DD"),
+            lastWeek : moment().subtract(7, 'd').format("YYYY-MM-DD")
         }
     }
 
     componentDidMount(){
-        fetch(`hhttp://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${LAST_WEEK}&primary_release_date.lte=${TODAY}&api_key=74ff4d5b18f55c304a239fadf716fe2f`)
+        const { today, lastWeek } = this.state
+        
+        fetch(`http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=${today}&api_key=74ff4d5b18f55c304a239fadf716fe2f`)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
             this.setState({movies: result.results})
         })
-        console.log(this.state.movies);
     }
 
     render() {
